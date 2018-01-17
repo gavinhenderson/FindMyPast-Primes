@@ -1,0 +1,19 @@
+{
+  "name": "findmypast-primes",
+  "version": "0.0.1",
+  "description": "A simple application that takes in a number (N) and then outputs the multiplication table",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gavinhenderson/FindMyPast-Primes.git"
+  },
+  "author": "Gavin Henderson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gavinhenderson/FindMyPast-Primes/issues"
+  },
+  "homepage": "https://github.com/gavinhenderson/FindMyPast-Primes#readme"
+}
