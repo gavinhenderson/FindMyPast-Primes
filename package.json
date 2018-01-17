@@ -4,7 +4,7 @@
   "description": "A simple application that takes in a number (N) and then outputs the multiplication table",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
