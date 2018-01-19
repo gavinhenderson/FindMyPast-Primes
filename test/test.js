@@ -10,7 +10,7 @@ describe('Initial Test', function() {
   });
 });
 
-describe('Extract given N', function() {
+describe('Using CLI module to get user defined N', function() {
 
   it('No flags given',function() {
     assert.equal(CLI.getN(["node","index.js","1"]), 1)
@@ -41,8 +41,8 @@ describe('Extract given N', function() {
   })
 })
 
-describe('Testing the prime table',function(){
-  it('Check the size of the table',function(){
+describe('Table Generation',function(){
+  it('Making sure the prime table is the correct size',function(){
     //We are going to check the size of the first 20 tables
     for(var i=1; i<21; i++){
       //Check the X length first
@@ -54,5 +54,13 @@ describe('Testing the prime table',function(){
         assert.equal(rawTable[j].length,i+1)
       }
     }
+  })
+})
+
+describe('Prime Generation',function(){
+  it('Check the list of primes is the corrent length',function(){
+    assert.equal(PrimeTable.generatePrimeList(10).length, 10)
+    assert.equal(PrimeTable.generatePrimeList(1).length, 1)
+    assert.equal(PrimeTable.generatePrimeList(99).length, 99)
   })
 })

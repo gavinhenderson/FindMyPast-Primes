@@ -1,3 +1,8 @@
+//Generate n number of primes
+function generatePrimeList(n){
+  return [2,3,5]
+}
+
 function generatePrimeTable(n){
   //The has default values for the purpose of this skeleton
   //Prime table is a 2D array
@@ -12,5 +17,6 @@ function generatePrimeTable(n){
 }
 
 module.exports = {
-  generatePrimeTable
+  generatePrimeTable,
+  generatePrimeList
 }
