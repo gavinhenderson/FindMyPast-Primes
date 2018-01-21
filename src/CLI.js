@@ -1,9 +1,32 @@
+var program = require('commander')
+
+var n = 3
+
+function setN(val){
+  if(isNaN(val)){
+    throw new Error('You entered a non-numeric value')
+  }else if(val<1){
+    throw new Error('N must be at least 1')
+  }else if(!(val % 1 === 0)){
+    throw new Error('N must be a whole number')
+  }else{
+    n = val
+  }
+}
+
+function loadFlags(argv){
+  program
+  .version('0.1.0')
+  .option('-n, --number <n>', 'An integer argument', setN)
+  .parse(argv);
+}
+
 /*
   This function returns the N given in the command line interface
   This function is resposible giving a default value and raising errors
 */
-function getN(argv){
-  return argv[2]
+function getN(){
+  return n
 }
 
 /*
@@ -26,5 +49,6 @@ function getOuptutType(argv){
 
 module.exports = {
   getN,
-  outputType
+  outputType,
+  loadFlags
 }
