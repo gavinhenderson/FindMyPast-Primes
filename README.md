@@ -12,6 +12,10 @@ You can test that the code works by running the tests. The tests are written usi
 ```
 npm tests
 ```
+To run the program you must invoke the node script and then pass it a value for n. N must be a whole number that is one or greater. You start the script like so
+```
+node index.js -n <n>
+```
 
 ## Test Coverage
 

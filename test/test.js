@@ -23,36 +23,42 @@ describe('Initial Test', function() {
 describe('Using CLI module to get user defined N', function() {
 
   it('No flags given',function() {
-    assert.equal(CLI.getN(["node","index.js","1"]), 1)
+    CLI.loadFlags(["node","index.js","-n","1"])
+    assert.equal(CLI.getN(), 1)
   })
 
   it('Gives a letter rather than a number',function(){
     expect(
       function(){
-        CLI.getN(["node","index.js","a"])
+        CLI.loadFlags(["node","index.js","-n","a"])
+        CLI.getN()
       }).to.throw("You entered a non-numeric value")
   })
 
   it('Give a multidigit number',function(){
-    assert.equal(CLI.getN(["node","index.js","9999"]),9999)
+    CLI.loadFlags(["node","index.js","-n","9999"])
+    assert.equal(CLI.getN(),9999)
   })
 
   it('A negative number',function(){
     expect(
       function(){
-        CLI.getN(["node","index.js","-10"])
+        CLI.loadFlags(["node","index.js","-n","-10"])
+        CLI.getN()
       }).to.throw("N must be at least 1")
   })
 
   it('Given N=0',function(){
     expect(function(){
-      CLI.getN(["node","index.js","0"])
+      CLI.loadFlags(["node","index.js","-n","0"])
+      CLI.getN()
     }).to.throw("N must be at least 1")
   })
 
   it('N not being a whole number',function(){
     expect(function(){
-      CLI.getN(["node","index.js","1.1"])
+      CLI.loadFlags(["node","index.js","-n","1.1"])
+      CLI.getN()
     }).to.throw("N must be a whole number")
   })
 })
