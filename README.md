@@ -34,4 +34,5 @@ node index.js -n <n>
 4. Prime Generation
   * Check the list of primes is the correct length
   * Check that the list is in ascending order
+  * Make sure everything in the list is prime
   * Make sure no primes are missed (brute force)

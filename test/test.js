@@ -104,6 +104,13 @@ describe('Prime Generation',function(){
     }
   })
 
+  it('Make sure everything in the list is prime',function(){
+    var rawList = PrimeTable.generatePrimeList(100);
+    for(var i=0;i<rawList.length;i++){
+      assert.equal(isPrime(rawList[i]),true)
+    }
+  })
+
   it('Make sure no primes are missed(brute force)',function(){
     var rawList = PrimeTable.generatePrimeList(100);
     var counter = 0
