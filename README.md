@@ -12,3 +12,22 @@ You can test that the code works by running the tests. The tests are written usi
 ```
 npm tests
 ```
+
+## Test Coverage
+
+1. Initial Test
+  * This should always pass, here just to make sure the tests are running
+2. Using CLI module to get user defined N
+  * No flags given
+  * Gives a letter rather than a number
+  * Give a multidigit number
+  * A negative number
+  * Given N=0
+  * N not being a whole number
+3. Table Generation
+  * Making sure the prime table is the correct size
+  * Making sure every number on the inner table is not prime
+4. Prime Generation
+  * Check the list of primes is the correct length
+  * Check that the list is in ascending order
+  * Make sure no primes are missed (brute force)
