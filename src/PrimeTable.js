@@ -42,16 +42,23 @@ function generatePrimeList(n){
 function generatePrimeTable(n){
   //The has default values for the purpose of this skeleton
   //Prime table is a 2D array
-  generatePrimeList(n)
+  var PrimeList = generatePrimeList(n)
+  PrimeList.unshift(1)
 
-  var primeTable = [
-    [,2,3,5],
-    [2,4,6,10],
-    [3,6,9,15],
-    [5,10,15,25]
-  ]
+  var tableSize = PrimeList.length
+  var PrimeTable = new Array(tableSize);
+  for (var i = 0; i < tableSize; ++i) {
+    PrimeTable[i] = new Array(tableSize);
+  }
 
-  return primeTable
+  for(var i=0;i<PrimeList.length;i++){
+    for(var j=i;j<PrimeList.length;j++){
+      PrimeTable[i][j] = PrimeList[i]*PrimeList[j]
+      PrimeTable[j][i] = PrimeTable[i][j]
+    }
+  }
+
+  return PrimeTable
 }
 
 module.exports = {
