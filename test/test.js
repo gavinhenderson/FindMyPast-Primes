@@ -90,9 +90,9 @@ describe('Table Generation',function(){
 
 describe('Prime Generation',function(){
   it('Check the list of primes is the correct length',function(){
-    assert.equal(PrimeTable.generatePrimeList(10).length, 10)
-    assert.equal(PrimeTable.generatePrimeList(1).length, 1)
-    assert.equal(PrimeTable.generatePrimeList(99).length, 99)
+    for(var i=1;i<100;i++){
+      assert.equal(PrimeTable.generatePrimeList(i).length, i)
+    }
   })
 
   it('Check that the list is in ascending order',function(){
