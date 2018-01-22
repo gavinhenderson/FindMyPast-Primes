@@ -86,6 +86,15 @@ describe('Table Generation',function(){
       }
     }
   })
+
+  it('Checking all the multiples are correct',function(){
+    var rawTable = PrimeTable.generatePrimeTable(100);
+    for(var i=1;i<rawTable.length;i++){
+      for(var j=1;j<rawTable.length;j++){
+        assert.equal(rawTable[i][j],rawTable[i][0]*rawTable[0][j])
+      }
+    }
+  })
 })
 
 describe('Prime Generation',function(){
