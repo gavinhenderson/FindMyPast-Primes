@@ -4,5 +4,5 @@ var PrimeTable = require('./src/PrimeTable.js')
 
 CLI.loadFlags(process.argv)
 var n = CLI.getN()
-var primeTable = PrimeTable.generatePrimeTable(n);
-Output.commandLine(primeTable)
+var primeList = PrimeTable.generatePrimeList(n);
+Output.commandLine(primeList, true, function(){})

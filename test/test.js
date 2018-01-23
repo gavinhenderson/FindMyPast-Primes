@@ -1,5 +1,6 @@
 var assert = require('assert');
 var CLI = require('./../src/CLI.js')
+var Output = require('./../src/Output.js')
 var PrimeTable = require('./../src/PrimeTable.js')
 var chai = require('chai')
 var expect = chai.expect;
@@ -68,32 +69,25 @@ describe('Table Generation',function(){
     //We are going to check the size of the first 20 tables
     for(var i=1; i<21; i++){
       //Check the X length first
-      var rawTable = PrimeTable.generatePrimeTable(i);
-      assert.equal(rawTable.length,i+1)
+      var rawList = PrimeTable.generatePrimeList(i)
 
-      //Check each Y length
-      for(var j=0;j<rawTable.length;j++){
-        assert.equal(rawTable[j].length,i+1)
-      }
+      var counter = 0;
+      Output.commandLine(rawList,false,function(x,y,val){
+        counter ++
+      });
+
+      assert.equal(counter, (i+1)*(i+1))
     }
   })
 
   it('Making sure every number on the inner table is not prime',function(){
-    var rawTable = PrimeTable.generatePrimeTable(100);
-    for(var i=1;i<rawTable.length;i++){
-      for(var j=1;j<rawTable[i].length;j++){
-        assert.equal(isPrime(rawTable[i][j]),false)
-      }
-    }
-  })
+    var rawList = PrimeTable.generatePrimeList(100)
 
-  it('Checking all the multiples are correct',function(){
-    var rawTable = PrimeTable.generatePrimeTable(100);
-    for(var i=1;i<rawTable.length;i++){
-      for(var j=1;j<rawTable.length;j++){
-        assert.equal(rawTable[i][j],rawTable[i][0]*rawTable[0][j])
+    Output.commandLine(rawList,false,function(x,y,val){
+      if(x!=0 && y!=0){
+        assert.equal(isPrime(val),false)
       }
-    }
+    })
   })
 })
 

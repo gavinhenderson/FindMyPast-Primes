@@ -1,17 +1,16 @@
 /*
   This function will output the given table to the command line
 */
-function commandLine(table){
-  for(var i=0;i<table.length;i++){
+function commandLine(list,print,tests){
+  list.unshift(1)
+  for(var i=0;i<list.length;i++){
     var tempLine = "| ";
-    for(var j=0;j<table[i].length;j++){
-      if(table[i][j]!=1){
-        tempLine += "" + table[i][j] +"\t|"
-      }else{
-        tempLine += "\t|"
-      }
+    for(var j=0;j<list.length;j++){
+      var multiple = (list[i]*list[j])
+      tempLine += multiple + "\t|"
+      tests(i,j,multiple)
     }
-    console.log(tempLine)
+    if(print){ console.log(tempLine) }
   }
 }
 

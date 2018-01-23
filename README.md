@@ -31,7 +31,6 @@ node index.js -n <n>
 3. Table Generation
   * Making sure the prime table is the correct size
   * Making sure every number on the inner table is not prime
-  * Checking all the multiples are correct
 4. Prime Generation
   * Check the list of primes is the correct length
   * Check that the list is in ascending order

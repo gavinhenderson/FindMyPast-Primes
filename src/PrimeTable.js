@@ -9,6 +9,7 @@ function generatePrimeList(n){
   //https://math.stackexchange.com/questions/803935/how-do-we-prove-p-n-sim-n-logn-logn-from-the-prime-number-theorem?rq=1
   //Estimating the nth term taken from stack overflow
   //n = n * Math.log(n*Math.log(n))
+  n = parseInt(n)
   var upperBound = (n+1) * Math.log((n+1)*Math.log((n+1)))
 
   //Let A be an array of Boolean values, indexed by integers 2 to n, initially all set to true.
@@ -39,29 +40,6 @@ function generatePrimeList(n){
   return PrimeList.slice(0,n)
 }
 
-function generatePrimeTable(n){
-  //The has default values for the purpose of this skeleton
-  //Prime table is a 2D array
-  var PrimeList = generatePrimeList(n)
-  PrimeList.unshift(1)
-
-  var tableSize = PrimeList.length
-  var PrimeTable = new Array(tableSize);
-  for (var i = 0; i < tableSize; ++i) {
-    PrimeTable[i] = new Array(tableSize);
-  }
-
-  for(var i=0;i<PrimeList.length;i++){
-    for(var j=i;j<PrimeList.length;j++){
-      PrimeTable[i][j] = PrimeList[i]*PrimeList[j]
-      PrimeTable[j][i] = PrimeTable[i][j]
-    }
-  }
-
-  return PrimeTable
-}
-
 module.exports = {
-  generatePrimeTable,
   generatePrimeList
 }
