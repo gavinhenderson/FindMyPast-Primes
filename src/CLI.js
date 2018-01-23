@@ -18,6 +18,7 @@ function loadFlags(argv){
   program
   .version('0.1.0')
   .option('-n, --number <n>', 'An integer argument', setN)
+  .option('-c, --csv','Output table to table.csv')
   .parse(argv);
 }
 
@@ -28,6 +29,12 @@ function loadFlags(argv){
 function getN(){
   return n
 }
+
+
+function getCSV(){
+  return program.csv
+}
+
 
 /*
   This enum gives the possible output types
@@ -49,6 +56,6 @@ function getOuptutType(argv){
 
 module.exports = {
   getN,
-  outputType,
-  loadFlags
+  loadFlags,
+  getCSV
 }

@@ -16,6 +16,11 @@ To run the program you must invoke the node script and then pass it a value for 
 ```
 node index.js -n <n>
 ```
+If you want to export the table to a CSV file use the '-c' flag to export to table.csv. Usage is as follows:
+```
+node index.js -n <n> -c
+
+```
 
 ## Test Coverage
 
