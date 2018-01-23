@@ -19,7 +19,10 @@ node index.js -n <n>
 If you want to export the table to a CSV file use the '-c' flag to export to table.csv. Usage is as follows:
 ```
 node index.js -n <n> -c
-
+```
+You can see the command line flags and arguments you can use by doing
+```
+node index.js -h
 ```
 
 ## Test Coverage
@@ -57,4 +60,30 @@ for i = 2, 3, 4, ..., not exceeding √n:
 
 Output: all i such that A[i] is true.
  ```
-In order to use the Sieve of Eratosthenes you have to generate the Nth prime which can be done using Prime Theory. I followed equations on [stackexchange](https://math.stackexchange.com/questions/803935/how-do-we-prove-p-n-sim-n-logn-logn-from-the-prime-number-theorem?rq=1).
+In order to use the Sieve of Eratosthenes you have to generate the Nth prime which can be done using Prime Theory. I followed equations using prime theory. [Reference](https://math.stackexchange.com/questions/803935/how-do-we-prove-p-n-sim-n-logn-logn-from-the-prime-number-theorem?rq=1).
+
+## Problems I encountered
+During my project I ran into a few challenges:
+* I was originally storing the multiplication table but I was hitting memory limits so I stopped storing it and just outputted it from the list of primes.
+* I was treating n as an int so when i did n+1 it appended a 1 causing the computation to be much bigger than it needed to be
+
+## What I am pleased with
+Aspects of the project I am proud of:
+* The unit tests I wrote before I built the prime generation
+* The sieve of Eratosthenes implementation
+* Adding TravisCI builds to track my build status
+* The general structure of the project
+* Being able to generate 999,999 primes in 1416ms
+* The outputting being a simple extensible design
+
+## What I would do with more time
+If I had more time I would:
+* Add prime caching
+* Run a segmented sieve so more numbers can be calculated before running out of memory
+* Add more output options
+
+## Space/Time Complexities
+Memory complexity is based upon the sieve algorithm which stores an array of size
+```O((n+1)log((n+1)log((n+1))))```. When n is the number of primes we aim to generate. This equation is used to calculate the upperBound of the sieve.
+
+The time complexity of the sieve is ```O(n log(log(n)))``` when n is the upper bound of the sieve. There is also an added time complexity of outputting the numbers which is O(n<sup>2</sup>). This could be reduced by not doing multiples twice but this would require storing half the multiples which dramatically increases the space complexity so isn't worth it.

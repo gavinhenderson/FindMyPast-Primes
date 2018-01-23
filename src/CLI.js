@@ -1,7 +1,10 @@
+/* Use commander for ease of interfacing with CLI flags */
 var program = require('commander')
 
+//We are going to use n as the default n
 var n = 3
 
+//Makes sure that n is valid
 function setN(val){
   if(isNaN(val)){
     throw new Error('You entered a non-numeric value')
@@ -14,6 +17,7 @@ function setN(val){
   }
 }
 
+/* Use commanded to get the info from the CLI */
 function loadFlags(argv){
   program
   .version('0.1.0')
@@ -22,36 +26,14 @@ function loadFlags(argv){
   .parse(argv);
 }
 
-/*
-  This function returns the N given in the command line interface
-  This function is resposible giving a default value and raising errors
-*/
+/* Returns n */
 function getN(){
   return n
 }
 
-
+/* Finds out if user wants output in CSV */
 function getCSV(){
   return program.csv
-}
-
-
-/*
-  This enum gives the possible output types
-*/
-var outputType = {
-  RAW: 1,
-  CSV: 2,
-  HTML: 3,
-  CLI: 4
-};
-
-/*
-  This function will read the command line input and extract the chosen output type
-  THis function is also resposible for giving errors and specifing a default output type
-*/
-function getOuptutType(argv){
-  return outputType.RAW;
 }
 
 module.exports = {

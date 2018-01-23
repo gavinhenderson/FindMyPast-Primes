@@ -1,5 +1,9 @@
 //Generate n number of primes
 function generatePrimeList(n){
+  //Makes sure n isnt to large
+  if(n==10000000){
+    throw new Error("This number will cause a memory overflow")
+  }
   //Estimation doesnt work when given 1 so we catch the edge case
   if(n===1){
     return [2]
@@ -7,8 +11,7 @@ function generatePrimeList(n){
 
   //https://math.stackexchange.com/questions/1586878/get-from-prime-number-theorem-to-the-approximate-equality-of-nth-prime-to-nlogn
   //https://math.stackexchange.com/questions/803935/how-do-we-prove-p-n-sim-n-logn-logn-from-the-prime-number-theorem?rq=1
-  //Estimating the nth term taken from stack overflow
-  //n = n * Math.log(n*Math.log(n))
+  //Estimating the nth term
   n = parseInt(n)
   var upperBound = (n+1) * Math.log((n+1)*Math.log((n+1)))
 
