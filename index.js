@@ -11,8 +11,12 @@ console.time("Prime Generation Time")
 var primeList = PrimeTable.generatePrimeList(n);
 console.timeEnd("Prime Generation Time")
 
-//Output to table.csv
-if(CLI.getCSV()){
+//Output the list of primes
+if(CLI.getPrintPrime()){
+  for(var i=0;i<n;i++){
+    console.log("Prime "+(i+1)+": "+primeList[i])
+  }
+}else if(CLI.getCSV()){ //Output to table.csv
   console.log()
   console.log("Outputting to table CSV......")
   console.log("Remember the space complexity is n^2")

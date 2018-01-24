@@ -23,6 +23,7 @@ function loadFlags(argv){
   .version('0.1.0')
   .option('-n, --number <n>', 'An integer argument', setN)
   .option('-c, --csv','Output table to table.csv')
+  .option('-p, --primes','Only output the primes')
   .parse(argv);
 }
 
@@ -36,8 +37,14 @@ function getCSV(){
   return program.csv
 }
 
+//Finds out if the user only wants the Primes
+function getPrintPrime(){
+  return program.primes
+}
+
 module.exports = {
   getN,
   loadFlags,
-  getCSV
+  getCSV,
+  getPrintPrime
 }

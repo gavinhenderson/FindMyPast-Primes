@@ -1,7 +1,7 @@
 //Generate n number of primes
 function generatePrimeList(n){
   //Makes sure n isnt to large
-  if(n==10000000){
+  if(n>4000000){
     throw new Error("This number will cause a memory overflow")
   }
   //Estimation doesnt work when given 1 so we catch the edge case

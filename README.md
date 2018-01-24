@@ -20,6 +20,10 @@ If you want to export the table to a CSV file use the '-c' flag to export to tab
 ```
 node index.js -n <n> -c
 ```
+You can output only the primes by doing
+```
+node index.js -n <n> -p
+```
 You can see the command line flags and arguments you can use by doing
 ```
 node index.js -h
