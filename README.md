@@ -74,6 +74,7 @@ During my project I ran into a few challenges:
 ## What I am pleased with
 Aspects of the project I am proud of:
 * The unit tests I wrote before I built the prime generation
+* Being able to about up to 4 million primes
 * The sieve of Eratosthenes implementation
 * Adding TravisCI builds to track my build status
 * The general structure of the project
@@ -84,6 +85,8 @@ Aspects of the project I am proud of:
 If I had more time I would:
 * Add prime caching
 * Run a segmented sieve so more numbers can be calculated before running out of memory
+* Use the segmented sieve to allow for parallelisation
+* Optamise on a case by case basis (memory or speed)
 * Add more output options
 
 ## Space/Time Complexities
